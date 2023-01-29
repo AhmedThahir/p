@@ -1,0 +1,76 @@
+div.
+	Inputs
+	- Obj (Objective Function)
+	- ProblemSize (dimension)
+	- PlayerSize (Number of players)
+	- TeamSize (No of teams)
+	- MaxNFix (Maximum no of fixtures)
+	
+	Output Most Valuable Player
+
+	Initialization
+		- Fix PlayersSize
+		- Randomly choose players
+	Random Team Formation
+
+	Variables
+	- obj
+	- obj_new
+
+	for fixture = 1 &rarr; MaxNFix
+		for i = 1 &rarr; TeamSize
+			Team<sub>i</sub> = Select team number i from teams
+			Team<sub>j</sub> = Randomly select team number j from teams,
+				such that j&ne;i
+
+			// Individual Competition
+			Team<sub>i</sub> = Team<sub>i</sub> + rand*(FranchisePlayer<sub>i</sub> - Team<sub>i</sub>)
+				+ 2*rand*(MVP - Team<sub>i</sub>)
+
+			// Team Competition
+			fitnessNorm<sub>Team i</sub> = fitness<sub>Team i</sub> - min(fitness of all teams)
+			fitnessNorm<sub>Team j</sub> = fitness<sub>Team j</sub> - min(fitness of all teams)
+			
+			// P(winning)
+			wi = fitnessNorm<sub>Team i</sub>/(fitnessNorm<sub>Team i</sub> + fitnessNorm<sub>Team j</sub>)
+			wj = fitnessNorm<sub>Team j</sub>/(fitnessNorm<sub>Team i</sub> + fitnessNorm<sub>Team i</sub>)
+
+			if wi > wj
+				better_team = i
+				worse_team = j
+				winning_percentage = wi
+			else
+				better_team = j
+				worse_team = i
+				winning_percentage = wj
+
+			r = uniform_random(0, 1)
+			if winning_percentage > r
+				winning_team = better_team
+				losing_team = worse_team
+			else
+				winning_team = worse_team
+				losing_team = better_team
+
+			if winning_team == i
+				Team<sub>i</sub> = Team<sub>i</sub> + rand*(Team<sub>i</sub> - FranchisePlayer<sub>j</sub>)
+			else
+				Team<sub>i</sub> = Team<sub>i</sub> + rand*(FranchisePlayer<sub>j</sub> - Team<sub>i</sub>)
+		
+			Check if there are players outside the search space
+
+		// calculate obj
+		obj_new = sum of squared skills
+
+		// Application of greediness: Accept new solution?
+		if obj_new > obj
+			obj = obj_new
+		
+		// Application of elitism:
+		Worst players replaced
+		The number of players replaced = 1/3 * PlayersSize
+		(this can be changed)
+
+	MVP &larr; player with fitness = max(player fitness)
+
+	end

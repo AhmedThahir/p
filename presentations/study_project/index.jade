@@ -1,0 +1,162 @@
+extends ../../backend/_layout.jade
+
+block title
+	div Sports Analytics
+
+block content
+	section
+		h1 What?
+		.rs
+			img(data = "venn.svg")
+			img(data = "flowchart.svg")
+	
+	section
+		h1 Types of Data
+		ul
+			li Cross-Sectional
+			li Time Series
+			li Panel
+	section
+		h1 Cross-Sectional
+		table.nf
+			thead
+				tr
+				th Year
+				th Company
+				th Revenue
+			tbody
+				tr
+					td 2015
+					td(style="color: aqua") A
+					td 1K
+				tr
+					td 2015
+					td(style="color: aqua") B
+					td 2K
+				tr
+					td 2015
+					td(style="color: aqua") C
+					td 3K
+
+	section
+		h1 Time Series
+		table.nf
+			thead
+				tr
+				th Year
+				th Company
+				th Revenue
+			tbody
+				tr
+					td(style="color: orange") 2015
+					td A
+					td 1K
+				tr
+					td(style="color: orange") 2016
+					td A
+					td 2K
+				tr
+					td(style="color: orange") 2017
+					td A
+					td 3K
+				tr
+					td(style="color: orange") 2018
+					td A
+					td 3K
+				tr
+					td(style="color: orange") 2019
+					td A
+					td 3K
+				tr
+					td(style="color: orange") 2020
+					td A
+					td 3K
+	section
+		h1 Panel
+		table.nf
+			thead
+				tr
+					th Year
+					th Company
+					th Revenue
+			tbody
+				tr
+					td(style="color: orange") 2015
+					td(style="color: aqua") A
+					td 1K
+				tr
+					td(style="color: orange") 2015
+					td(style="color: aqua") B
+					td 1K
+				tr
+					td(style="color: orange") 2016
+					td(style="color: aqua") B
+					td 2K
+				tr
+					td(style="color: orange") 2017
+					td(style="color: aqua") B
+					td 3K
+				tr
+					td(style="color: orange") 2016
+					td(style="color: aqua") C
+					td 2K
+				tr
+					td(style="color: orange") 2017
+					td(style="color: aqua") C
+					td 3K
+
+	
+	section(data= "time_series.svg")
+	
+	section
+		h1 Granger Causality
+		span $$y_t = a y_{t-1} + b x_{t-1}$$
+		ul.f Hypothesis test
+			li $H_0 : b = 0$
+			li $H_1 : b \ne 0$
+			li p-Value
+				ul
+					li $p \le 0.05$ 
+						span ✅
+
+	section
+		section.cover(data="work.jpg")
+			h1 Practical Work
+		section(data="03.html")
+		//- section(data="01.html")
+		//- section(data="02.html")
+
+	section
+		h1 References
+		ul
+			li.nf S. A. McLeod, “[What a p-value tells you about statistical significance],” 2019 ...
+			li.nf “Cristiano Ronaldo - Market value over time.” ...
+			li.nf W. McKinney, “Answer to ‘How to group pandas DataFrame entries by date in a non-unique column,’” ...
+
+
+	section
+		h1 Future Work
+		ul.f Ideas
+			li Player Purchase
+			li Gini Index 
+				span - Diversity
+			li Judea Pearl Model
+			li World Cup
+
+block appendix
+	section.cover(data="journey.jpg")
+		h1 Journey
+	section
+		h1 Sports
+		img(data = "sport360.jpg")
+	section
+		h1 Programming
+		iframe(data-src="assets/programming.html")
+	section
+		h1 Economics
+		ul
+			li Scarcity of resources
+			li Efficient outcomes
+				ul
+					li.f maximizing output
+					li.f minimizing costs

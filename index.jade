@@ -1,0 +1,26 @@
+html
+	script.
+		(function (){
+			const entered_link = window.location.href
+			const requests = entered_link.split("?")
+
+			const presentation = requests[1]
+			let page = requests[2]
+
+			if (presentation == null)
+			{
+				window.alert("Retry with link\?presentation\?page" + "\n\n" +
+											"page = optional" + "\n" +
+											"presentation = compulsory"
+				)
+
+				return
+			}
+
+			let new_page_link = "./presentations/" + presentation + "/index.html"
+			
+			if (page != null)
+				new_page_link += "#/" + page
+
+			window.location.replace(new_page_link);
+		})();

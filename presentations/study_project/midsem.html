@@ -1,0 +1,135 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Ahmed's Presentation</title><link rel="preload" href="./../../backend/custom/fonts/Montserrat/Montserrat.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="./../../backend/custom/styles/combined.css"><link rel="stylesheet" href="" id="theme"><link rel="preload" href="./../../backend/reveal.js-master/dist/theme/black.css" as="style"><link rel="stylesheet" href="./../../backend/custom/styles/custom.css"></head><body><div class="reveal"><div class="slides"><section class="start"><h1 class="f"><div>Sports Analytics</div></h1><div class="f" data-fragment-index="1"><div>Ahmed Thahir</div></div><aside># Shortcuts
+- M: Menu
+- B: Blackboard
+- C: Chalkboard
+- P: Pointer
+
+# Self
+1. ***Click notes to get back focus***
+1. Lights off
+1. Phone - Silent
+1. Water
+1. Use the audience screen for animations
+
+# Audience
+1. audible/issues, let me know
+1. Q&A session at the end
+</aside></section><section><h1>Sports Analytics</h1><img data="flowchart.svg"></section><section class="cover" data="research.jpg"><h1>My Research</h1></section><section><h1>Objective</h1><ul class="f">To formulate a method<li><b>not</b> for prediction</li><li>but rather<span> to determine what <mark>produces</mark> effective outcomes</span></li><li>to identify what to improve</li></ul><aside>- current research in sports analytics mainly focuses on prediction
+- help coaches identify what to improve on the most</aside></section><section><h1>Literature Gaps</h1><ul><li>Over-reliance on correlation</li><li>Lack of causal inference</li><li>Financial values - absolute terms<br><span>not relative terms</span></li></ul></section><section><h1>Proposed Method</h1><ul><li>Causal Inference</li><li>Economic Principles <span>- Opportunity Cost, Inflation</span></li></ul></section><section class="cover" data="review.jpg"><h1>Literature Review</h1></section><section><h1>Statistics</h1><p class="f">Correlation <span>$\ne$ Causation</span></p><table><thead><tr><th>Type</th><th>Use</th></tr></thead><tbody><tr><td>Correlation</td><td>Prediction</td></tr><tr><td>Causal Effect</td><td>Decisions - Sample</td></tr><tr><td>Causal Mechanism</td><td>Decisions - Population</td></tr></tbody></table><aside>- Effect
+	- does it affect?
+	- how much
+- Mechanism
+	- how does it cause?
+	- applyable to other samples
+- Mechanism is necessary to provide meaningful insights</aside></section><section><h1>Causal Models</h1><ul><li>Rubin<ul><li>Randomization</li><li class="f">$ATE = ATT - ATU$</li></ul></li><li>Judea-Pearl</li></ul><aside>- Rubin - Experimental Data (not always feasible)
+- Judea-Pearl - Observational Data (not always feasible)</aside><aside>|      |                  |
+| ---- | ---------------- |
+| ATE  | Entire Sample    |
+| ATT  | Treated Sample   |
+| ATU  | Untreated Sample |</aside></section><section data="potentialOutcomesDistribution.png"></section><section><h1>Economics</h1><ul><li>Hyper Inflation</li><li>Real Cost <span> = Opportunity Cost</span></li></ul><aside>- Pogba
+- Neymar</aside></section><section><h1>Models</h1><table><thead><tr><th>Algorithm</th><th>Working</th></tr></thead><tbody><tr><td>Linear Regression</td><td>$a_0 + a_1 x$</td></tr><tr><td>Polynomial Regression</td><td>$a_0 + a_1 x + \dots + a_n x^n$</td></tr><tr><td>Logistic Regression</td><td>$g(a_0 + a_1 x) \\$<span>$g(z) = \frac1{ 1+e^{-z} }$</span></td></tr><tr><td>Decision Trees</td><td>Nodes - Parameters</td></tr><tr><td>Random Forests</td><td>Collection of Trees</td></tr><tr><td>Supported Vector Machine</td><td>Hyperplane</td></tr></tbody></table><aside>1.
+1.
+1. Sigmoid Function ensures a range from $[0,1]$
+1.
+1.
+1. maximize the margin between 2 categories of data</aside></section><section data="linearRegression.png"></section><section data="polynomialRegression.png"></section><section data="logisticRegression.jpg"></section><section data="trees.svg"></section><section data="randomForests.svg"></section><section data="svm.png"></section><section><h1>Implementation</h1><table><thead><tr><th>Purpose</th><th>Tool</th></tr></thead><tbody><tr><td>Programming Language</td><td>Python</td></tr><tr><td>Dataframes Library</td><td>Pandas</td></tr><tr><td>Plotting Library</td><td>Matplotlib</td></tr><tr><td>Prediction Library</td><td>SciKit-Learn</td></tr><tr><td>Math Library</td><td>Numpy</td></tr><tr><td>Integrated Development <br /> Environment</td><td>Jupyter Notebook</td></tr></tbody></table><aside>The advantage of these libraries is that they use C++ under the hood
+So, the performance is really good.
+</aside></section><section class="cover" data="work.jpg"><h1>Practical Work</h1></section><section data="01.html"></section><section data="02.html"></section><section class="end"><h1>Thank &nbsp;You</h1></section><section class="misc"><section class="cover" data="./.././../../backend/custom/common_assets/qa.jpg"><h1>Q&A        </h1><aside>1. So let's start the Q&A session
+1. Feel free to ask any questions
+1. Meanwhile, QR code - folder containing
+	1. report
+	1. references used for the reseach
+	1. the credits to the photographers</aside></section></section><section class="appendix"><section class="cover" data="./.././../../backend/custom/common_assets/appendix.jpg"><h1>Appendix</h1></section><section data="venn.svg"></section><section><h1>Why?</h1><ul><li>Intersection of interests</li><li>Solve problems</li><li>Small clubs</li></ul><aside>- Small clubs have to somehow compete with the big ones
+- make informed decisions
+- cannot afford to make costly mistakes</aside></section><section class="cover" data="journey.jpg"><h1>Journey</h1></section><section><h1>Sports</h1><img data="sport360.jpg"></section><section><h1>Programming</h1><iframe data-src="assets/programming.html"></iframe></section><section><h1>Economics</h1><ul><li>Scarcity of resources</li><li>Efficient outcomes<ul><li class="f">maximizing output</li><li class="f">minimizing costs</li></ul></li></ul></section><section data="https://ourworldindata.org/grapher/gender-wage-gap-oecd?time=1990..2015&amp;country=~JPN" fallback="wageGap.svg"><aside>Insight here:
+The wage gap has gone down from 1990 to 2015 in Japan</aside></section><section data="https://ourworldindata.org/grapher/prevalence-of-anxiety-disorders-males-vs-females?zoomToSelection=true&amp;minPopulationFilter=1000000&amp;time=1990..2015&amp;country=~JPN" fallback="anxiety-gender.svg"><aside>- Insight here:
+	The share of anxiety in women has gone down
+- Conclusion we can draw:
+	1. In Japan, there is a statistical correlation between
+		- anxiety, and
+		- wage gap
+	2. As a policy, reducing the wage gap *may* reduce anxiety in women
+- Conclusions will **not** be universally applicable</aside></section></section></div></div><script src="./../../backend/custom/js/custom.js"></script><script src="./../../backend/reveal.js-master/dist/reveal.js"></script><script>set_themes("black")
+Reveal.initialize(config)
+
+// plugins
+window.addEventListener("load", function () {
+	//- loadStyle("./../../backend/custom/plugins/" + 'attribution/attribution.js')
+	//- loadScript("./../../backend/custom/plugins/" + 'toc/toc.js')
+	footer(slides) // it's here, as footer needs to have the same fragment index as the caller, so it should be after reveal has initialized
+
+	if (is_mobile())
+		Reveal.configure(mobile_config)
+
+	loadScript("./../../backend/custom/plugins/" + 'menu/menu.js').then(() => {
+		Reveal.registerPlugin(RevealMenu)
+	})
+
+	loadScript("./../../backend/custom/plugins/" + 'onetimer/onetimer.js').then(() => {
+		Reveal.registerPlugin(OneTimer)
+	})
+
+
+	// no need to load plotly, as the iframe will request anyway
+
+	if (slides.querySelector(".diagram-data") != null) {
+		const mermaid = "./../../backend/custom/plugins/" + 'mermaid/mermaid.'
+		loadScript(mermaid + 'js')
+		loadStyle(mermaid + 'css')
+		loadScript(mermaid + 'full.js')
+	}
+
+	// default plugins
+	let equation_flag = equation_exists(slides)
+	let code_flag = code_exists(slides)
+	let mathjs_flag = mathjs_required(equation_flag, code_flag)
+	//- console.log(equation_flag)
+
+	if (mathjs_flag)
+	{
+		loadScript("./../../backend/reveal.js-master/" + 'plugin/math/math.js').then(() => {
+			if (equation_flag)
+				Reveal.registerPlugin(RevealMath.KaTeX)
+
+			if (code_flag) {
+				// math.js is required for smooth animations
+				const k = "./../../backend/reveal.js-master/" + 'plugin/highlight/'
+
+				loadStyle("./../../backend/reveal.js-master/" + 'dist/theme/fonts/source-sans-pro/source-sans-pro.css')
+
+				loadStyle(k + 'monokai.css')
+				loadScript(k + '/highlight.js').then(() => {
+					Reveal.registerPlugin(RevealHighlight)
+				})
+			}
+		})
+	}
+
+	// non-critical
+	if (is_mobile()) {
+		loadScript("./../../backend/custom/plugins/" + 'toolbar/toolbar.js')
+	} else {
+		if(countdown_exists(slides))
+		loadScript("./../../backend/custom/plugins/" + 'countdown/countdown.js')
+
+		loadStyle("./../../backend/custom/plugins/" + 'chalkboard/style.css')
+		loadScript("./../../backend/custom/plugins/" + 'chalkboard/plugin.js').then(() => {
+			Reveal.registerPlugin(RevealChalkboard)
+		})
+
+		loadStyle("./../../backend/custom/plugins/" + 'pointer/pointer.css')
+		loadScript("./../../backend/custom/plugins/" + 'pointer/pointer.js').then(() => {
+			Reveal.registerPlugin(RevealPointer)
+		})
+
+		if (notes_exist(slides))
+		{
+			loadScript("./../../backend/reveal.js-master/" + 'plugin/notes/notes.js').then(() => {
+				Reveal.registerPlugin(RevealNotes)
+			})
+			//- loadScript("./../../backend/reveal.js-master/" + 'plugin/markdown/markdown.js').then(() => {
+			//- 	Reveal.registerPlugin(RevealMarkdown)
+			//- })
+		}
+	}
+})</script></body></html>

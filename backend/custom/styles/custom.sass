@@ -1,0 +1,279 @@
+// make everything in terms of em
+
+@font-face
+	font-family: 'Montserrat'
+	src: url('./../fonts/Montserrat/Montserrat.woff2') format("woff2")
+	// if this style sheet is inline './../fonts/Montserrat/Montserrat.woff2'
+	font-display: swap
+
+*
+	text-transform: initial !important
+	text-shadow: none !important
+	text-rendering: optimizeSpeed !important
+	text-rendering: -webkit-optimize-contrast !important
+	text-rendering: optimize-contrast !important
+
+.slides
+	font-size: 1.1em
+
+section
+	text-align: left
+	font-family: "Montserrat"
+
+.reveal
+	h1
+		font-size: 1.5em
+		font-family: "Montserrat"
+		text-align: center
+	h2
+		font-family: "Montserrat"
+	
+	ul
+		display: block
+
+	ul,
+	ol
+		margin-left: 0
+	ul+ul,
+	ul+ol,
+	ol+ol,
+	ol+ul
+		margin-top: 0.5em
+	li
+		margin-left: 1em
+	img,
+	video,
+	iframe
+		width: 100%
+		max-width: 100%
+		height: 10em
+		max-height: 10em
+		object-fit: contain
+		margin: auto
+
+	.slide-background-content
+		filter: contrast(115%) saturate(125%)
+	
+	.cover
+		h1
+			margin: 0 auto 0 auto
+			color: hsla(0, 0%, 90%, 1) !important
+			padding: 0.5em
+			background-color: hsla(0, 0%, 0%, 0.75)
+			color: hsla(0, 0%, 90%, 1)
+			border-radius: 0.2em
+		.slide-background-content
+			//[style^="background-image"]
+			// affecting all
+			filter: contrast(115%) saturate(125%) brightness(50%) blur(1px) // order matters
+
+	@media screen and (min-width: 1000px)
+		.slide-menu-button, .reveal-toolbar
+			display: none
+	.reveal-toolbar.reveal-toolbar-bottom
+		left: 1vw
+	.reveal-toolbar .reveal-toolbar-button, .slide-menu-button a
+		background-color: initial !important
+		border: none !important
+		margin: 0 !important
+		color: hsla(0, 0, 50%, 0.75) !important
+		&:hover
+			color: hsla(0, 0, 50%, 1) !important
+	
+	// fragments
+	$opacity: 0.1
+	$table_border: 0.05em
+
+	&.dark_theme .slides section
+		color: hsla(0, 0%, 90%, 1)
+		h1
+			color: hsla(0, 0%, 90%, 1)
+		th
+			border-bottom: $table_border solid hsla(0, 0%, 90%, 1)
+			&.fragment:not(.visible)
+				border-bottom: $table_border solid hsla(0, 0%, 90%, 0)
+		.fragment.visible:not(th) // not current
+			color: hsla(0, 0%, 90%, $opacity)
+			&.current-fragment, &:has(.current-fragment)
+				color: hsla(0, 0%, 90%, 1)
+
+	&.light_theme .slides section
+		color: hsla(0, 0%, 10%, 1)
+		h1
+			color: hsla(0, 0%, 10%, 1)
+		th
+			border-bottom: $table_border solid hsla(0, 0%, 10%, 0)
+			&.fragment:not(.visible)
+				border-bottom: $table_border solid hsla(0, 0%, 10%, 0)
+		.fragment.visible:not(th)
+			color: hsla(0, 0%, 10%, $opacity)
+			&.current-fragment, &:has(.current-fragment)
+				color: hsla(0, 0%, 10%, 1)
+
+	.r-stack .fragment.visible:not(.current-fragment):not(.fragment:last-child),
+	footer.fragment.visible:not(.current-fragment) // fragment footers should not be visible later
+		opacity: 0
+	
+	.slide-number
+		right: 3vh
+		bottom: 3vh
+		font-size: 3vh
+		font-family: Montserrat
+
+	.progress
+		min-height: 2vh // 0.3em
+		transition: min-height 0.1s ease-out
+		&:hover
+			min-height: 5vh // 0.5em
+
+	.reveal-toolbar .reveal-toolbar-button
+		// bootstrap is messing this
+		box-sizing: initial !important
+
+	pre.code-wrapper
+		font-size: 0.8em
+		width: 100%
+
+		code
+			&::-webkit-scrollbar
+				background: transparent !important // make scrollbar transparent
+				width: 0px !important
+		
+	.pseudocode
+		*
+			color: hsl(0, 0, 90)
+			font-weight: normal
+
+	.full pre	code
+		max-height: 18em
+
+	.hljs.has-highlights tr:not(.highlight-line)
+		opacity: $opacity
+
+	mark
+		font-weight: bold
+		padding: 0.1em
+		transition: background-color 0.5s ease
+		
+	table
+		margin: auto
+		font-size: 0.8em
+		width: 100%
+		max-width: 100%
+		// border: 0.025em solid white
+		// th // , td
+		// 	text-align: center
+		// tbody
+			// tr:nth-child(odd)
+				// background-color: color.scale($whiteBg, $saturation: +50%, $lightness: +60%)
+		// tr:nth-child(even)
+			// opacity: 0
+			// background: #333 // color.scale($whiteBg, $saturation: +80%, $lightness: +40%)
+		td
+			border: none
+		td, th
+			padding: 0.2em 0.5em
+
+	.attr
+		text-align: center
+		font-size: 0.5em
+
+		position: fixed
+		left: 50%
+		top: 100%
+		/* bring your own prefixes */
+		transform: translate(-50%, -100%)
+
+		z-index: 100
+		backdrop-filter: blur(0.5em)
+		padding: 0.2em 1em
+
+	.start,
+	.end,
+	.center,
+	.cover
+		height: 100% !important
+		display: flex !important
+		flex-direction: column !important
+		justify-content: center !important
+		position: absolute !important
+
+	footer
+		position: fixed
+		bottom: 0
+		z-index: 20
+		width: 100%
+		font-size: 0.4em
+		text-align: center
+
+	.start
+		h1
+			font-size: 2.3em !important
+			text-align: left
+		div>div
+			margin-top: 1em
+			font-style: italic
+
+	.end, .center, .footer
+		text-align: center !important
+		h1
+			font-size: 2.5em !important
+
+
+	ul>, ol>, .eqn, tr
+		.fragment:not(th)
+			mark
+				color: hsla(0, 0%, 100%, $opacity)
+				background-color: hsla(0, 0%, 0%, 0%) // hsla(60, 100%, 50%,$opacity) !important
+
+	.current-fragment // ensures that span doesn't get affected
+		color: hsla(0, 0%, 100%, 1) !important
+		mark
+			color: hsla(0, 0%, 0%, 1) !important
+			background-color: hsla(60, 100%, 50%, 1) !important
+
+	.diagram-display // mermaid output
+		width: 75%
+		height: 50vh
+		max-height: 60% !important
+		margin: auto
+
+		svg
+			max-width: 100% !important
+			width: 100% !important
+			height: 100%
+			margin: auto
+
+	.diagram-data, .mermaid // mermaid code
+		display: none
+
+	.sharp
+		image-rendering: -moz-crisp-edges
+		image-rendering: -o-crisp-edges
+		image-rendering: pixelated
+		-ms-interpolation-mode: nearest-neighbor
+
+	.inverted,
+	iframe[src*="ourworldindata"] // dark theme for all ourworldindata_graphs
+		filter: saturate(200%) invert(1) contrast(85%) brightness(120%) hue-rotate(180deg) saturate(80%) // some keeda to create color contrast
+
+	iframe // when using iframes as fragments
+		z-index: 0
+
+	img, video
+		z-index: 1
+		filter: saturate(125%)
+
+	#qr
+		// height: 15em
+		max-height: 13em
+		position: absolute
+		top: 1em
+		// left: 2em
+
+	.str // .strike is reveal inbuilt
+		text-decoration: line-through
+
+	countdown
+		display: block
+		text-align: center

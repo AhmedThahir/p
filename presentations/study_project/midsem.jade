@@ -1,0 +1,210 @@
+extends ../../backend/_layout.jade
+
+block title
+	div Sports Analytics
+
+block content
+	section
+		h1 Sports Analytics
+		img(data="flowchart.svg")
+	section.cover(data= "research.jpg")
+		h1 My Research
+	section
+		h1 Objective
+		ul.f To formulate a method
+			li <b>not</b> for prediction
+			li but rather
+				span  to determine what <mark>produces</mark> effective outcomes
+			li to identify what to improve
+		aside.
+			- current research in sports analytics mainly focuses on prediction
+			- help coaches identify what to improve on the most
+	section
+		h1 Literature Gaps
+		ul
+			li Over-reliance on correlation
+			li Lack of causal inference
+			li Financial values - absolute terms
+				br
+				span not relative terms
+	section
+		h1 Proposed Method
+		ul
+			li Causal Inference
+			li Economic Principles <span>- Opportunity Cost, Inflation</span>
+	
+	section.cover(data="review.jpg")
+		h1 Literature Review
+	section
+		h1 Statistics
+		p.f Correlation <span>$\ne$ Causation</span>
+		table
+			thead
+				tr
+					th Type
+					th Use
+			tbody
+				tr
+					td Correlation
+					td Prediction
+				tr
+					td Causal Effect
+					td Decisions - Sample
+				tr
+					td Causal Mechanism
+					td Decisions - Population
+		aside.
+			- Effect
+				- does it affect?
+				- how much
+			- Mechanism
+				- how does it cause?
+				- applyable to other samples
+			- Mechanism is necessary to provide meaningful insights
+	section
+		h1 Causal Models
+		ul
+			li Rubin
+				ul
+					li Randomization
+					li.f $ATE = ATT - ATU$
+			li Judea-Pearl
+		aside.
+			- Rubin - Experimental Data (not always feasible)
+			- Judea-Pearl - Observational Data (not always feasible)
+		aside.
+			|      |                  |
+			| ---- | ---------------- |
+			| ATE  | Entire Sample    |
+			| ATT  | Treated Sample   |
+			| ATU  | Untreated Sample |
+	section(data= "potentialOutcomesDistribution.png")
+	
+	section
+		h1 Economics
+		ul
+			li Hyper Inflation
+			li Real Cost <span> = Opportunity Cost</span>
+		aside.
+			- Pogba
+			- Neymar
+	section
+		h1 Models
+		table
+			thead
+				tr
+					th Algorithm
+					th Working
+			tbody
+				tr
+					td Linear Regression
+					td $a_0 + a_1 x$
+				tr
+					td Polynomial Regression
+					td $a_0 + a_1 x + \dots + a_n x^n$
+				tr
+					td Logistic Regression
+					td $g(a_0 + a_1 x) \\$
+						span $g(z) = \frac1{ 1+e^{-z} }$
+				tr
+					td Decision Trees
+					td Nodes - Parameters
+				tr
+					td Random Forests
+					td Collection of Trees
+				tr
+					td Supported Vector Machine
+					td Hyperplane
+		aside.
+			1.
+			1.
+			1. Sigmoid Function ensures a range from $[0,1]$
+			1.
+			1.
+			1. maximize the margin between 2 categories of data
+	section(data= "linearRegression.png")
+	section(data= "polynomialRegression.png")
+	section(data= "logisticRegression.jpg")
+	section(data= "trees.svg")
+	section(data= "randomForests.svg")
+	section(data= "svm.png")
+	
+	section
+		h1 Implementation
+		table
+			thead
+				tr
+					th Purpose
+					th Tool
+			tbody
+				tr
+					td Programming Language
+					td Python
+				tr
+					td Dataframes Library
+					td Pandas
+				tr
+					td Plotting Library
+					td Matplotlib
+				tr
+					td Prediction Library
+					td SciKit-Learn
+				tr
+					td Math Library
+					td Numpy
+				tr
+					td Integrated Development <br /> Environment
+					td Jupyter Notebook
+		aside.
+			The advantage of these libraries is that they use C++ under the hood
+			So, the performance is really good.
+
+	section.cover(data="work.jpg")
+		h1 Practical Work
+	section(data="01.html")
+	section(data="02.html")
+
+block appendix
+	section(data="venn.svg")
+	section
+		h1 Why?
+		ul
+			li Intersection of interests
+			li Solve problems
+			li Small clubs
+		aside.
+			- Small clubs have to somehow compete with the big ones
+			- make informed decisions
+			- cannot afford to make costly mistakes
+	section.cover(data="journey.jpg")
+		h1 Journey
+	section
+		h1 Sports
+		img(data="sport360.jpg")
+	section
+		h1 Programming
+		iframe(data-src="assets/programming.html")
+	section
+		h1 Economics
+		ul
+			li Scarcity of resources
+			li Efficient outcomes
+				ul
+					li.f maximizing output
+					li.f minimizing costs
+	section(data="https://ourworldindata.org/grapher/gender-wage-gap-oecd?time=1990..2015&country=~JPN"
+					fallback="wageGap.svg")
+		aside.
+			Insight here:
+			The wage gap has gone down from 1990 to 2015 in Japan
+	section(data="https://ourworldindata.org/grapher/prevalence-of-anxiety-disorders-males-vs-females?zoomToSelection=true&minPopulationFilter=1000000&time=1990..2015&country=~JPN"
+					fallback="anxiety-gender.svg")
+		aside.
+			- Insight here:
+				The share of anxiety in women has gone down
+			- Conclusion we can draw:
+				1. In Japan, there is a statistical correlation between
+					- anxiety, and
+					- wage gap
+				2. As a policy, reducing the wage gap *may* reduce anxiety in women
+			- Conclusions will **not** be universally applicable

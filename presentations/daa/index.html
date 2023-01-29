@@ -1,0 +1,218 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Ahmed's Presentation</title><link rel="preload" href="./../../backend/custom/fonts/Montserrat/Montserrat.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="./../../backend/custom/styles/combined.css"><link rel="stylesheet" href="" id="theme"><link rel="preload" href="./../../backend/reveal.js-master/dist/theme/black.css" as="style"><link rel="stylesheet" href="./../../backend/custom/styles/custom.css"></head><body><div class="reveal"><div class="slides"><section class="start"><h1 class="f"><div>Optimization in Sports (MVPA)</div></h1><div class="f" data-fragment-index="1"><div>Ahmed Thahir (2020A7PS0198U)<br>Anmol Kumar (2020A7PS0221U)</div></div><aside># Shortcuts
+- M: Menu
+- B: Blackboard
+- C: Chalkboard
+- P: Pointer
+- Alt+Left, Alt+Right: Navigate by skipping fragments
+- Shift+Left, Shift+Right: Start, End of presentation
+
+# Self
+1. ***Click notes to get back focus***
+1. Lights off
+1. Phone - Silent
+1. Water
+1. Use the audience screen for animations
+
+# Audience
+1. audible/issues, let me know
+1. Q&A session at the end
+</aside></section><section class="cover" data="work.jpg"><h1>Introduction</h1></section><section><h1>MVP Algorithm</h1><ul><li>Most Valuable Player</li><li>Team Sports</li><li>Players</li><ul><li>collectively <span>$\to$ championship</span></li><li>individually <span>$\to$ MVP trophy</span></li></ul><li>Applied in other fields</li></ul></section><section><h1>Optimization</h1><table><thead><th class="nf"></th><th>Classical</th><th>Metaheuristic</th></thead><tbody><tr><td>Optimum Solution?</td><td>✅</td><td>Not necessary</td></tr><tr><td>Fast?</td><td>❌</td><td>✅</td></tr><tr><td>General?</td><td>❌</td><td>✅</td></tr></tbody></table><aside>- Optimization involves selection of one/more ‘optimal’ elements to maximize/minimize an objective function, subject to certain maximum/minimum constraints
+- Classic algorithms are deterministic, but do not work well if there exists discontinuities in obj()
+- Heuristic: Problem-solving method that is sufficient for quick, short-term solutions/approximations
+- Meta-Heuristic: Problem-independent heuristic algorithm designed to find, generate or select a heuristic
+- Metaheuristics do not guarantee that most optimumu are found, but they cope well with challenging problems
+- Nature-based algo: Animal behavioral patterns, genetic inheritance patterns, natural events, and human social behavior are a few examples of sources of inspiration
+</aside></section><section class="cover" data="summary.jpg"><h1>Summary of Papers</h1></section><section><table style="font-size: 0.5em"><thead><th class="nf">Paper Title</th><th class="nf">Summary</th></thead><tbody><tr class="f"><td class="nf">Optimization Algorithm of Sports Big Data Industry Architecture ...</td><td class="nf">Develops an optimization model and examines the optimization technique of the sports big data industry architecture based on fuzzy clustering. As a result, a few countermeasures are suggested, including resolving the issue of sports big data storage, enhancing big data processing and service capabilities, introducing advanced data processing talents, establishing scientific research teams, safeguarding personal information, and developing sports joint innovation research.</td></tr><tr class="f"><td class="nf">Soccer-Inspired Metaheuristics</td><td class="nf">Shows that the number of techniques drawing influence from soccer principles has increased significantly over the past few years. Reviews the state soccer-inspired class of metaheuristics, highlighting the literature's use of them.</td></tr><tr class="f"><td class="nf">Data-driven approach to predicting most valuable player in a game</td><td class="nf">Suggests a data-driven strategy for measuring sports team performance, based on the weighted aggregate of statistical markers (such as Principal Component Analysis), and meta-heuristic study to balance the traits and pick the MVPs in the best way possible</td></tr></tbody></table></section><section><table style="font-size: 0.5em"><thead><th class="nf">Paper Title</th><th class="nf">Summary</th></thead><tbody><tr class="f"><td class="nf">Meta-heuristics meet sports</td><td class="nf">Found 7 areas where meta-heuristics were applied in sports research: team selection, ideal lineups, sports equipment optimization, scheduling and ranking, performance analysis, sports predictions, and player tracking. It revealed: (a) meta-heuristics have been widely used in the sports of cricket and soccer; and (b) the drawbacks and difficulties of using meta-heuristics in sports</td></tr><tr class="f"><td class="nf">A Development framework for decision support systems</td><td class="nf">Sports contexts, such as scheduling optimization, skill evaluation and categorization, decision-making assessment, talent discovery and team selection, or injury risk assessment, have seen an increase in the use of decision support systems. This paper suggests a framework for developing decision support systems for use specifically in high-performance sport, drawing on a range of literature sources. It suggests three different standards for this objective: 1) Contentment with the context 2) Productivity and Process Effectiveness 3) Feasibility 4) Delivered knowledge 5) Decisional guidance 6) Data quality are the six distinct factors that support these criteria.</td></tr></tbody></table></section><section class="cover" data="applications.jpg"><h1>Applications</h1></section><section><h1>Applications</h1><ul><li>Most Valuable Player</li><li>Team Selection</li><li>Equipment Optimization</li><li>Scheduling & Ranking</li><li>Other fields</li><ul><li>Cost Minimization</li><li>Sales Maximization</li></ul></ul></section><section class="cover" data="equations.jpg"><h1>Relevant Equations</h1></section><section><h1>Relevant Equations</h1><ul><li style="font-size: 0.8em">$P_i = [ S_{i, 1} \quad S_{i, 2} \quad \dots \quad S_{i, \text{ProblemSize}}]$</li><li style="font-size: 0.8em">$\text{Team}_i = \begin{bmatrix}
+P_1 \\
+P_2 \\
+\vdots \\
+P_\text{PlayersSize}
+\end{bmatrix}$</li><li style="font-size: 0.6em">$\begin{bmatrix}
+S_{1, 1} & S_{1, 2} & \dots & S_{i, \text{ProblemSize}} \\
+S_{2, 1} & S_{2, 2} & \dots & S_{i, \text{ProblemSize}}\\
+\vdots & \vdots & \dots & \vdots \\
+S_{\text{PlayersSize}, 1} & S_{\text{PlayersSize}, 2} & \dots & S_{\text{PlayersSize}, \text{ProblemSize}}\\
+\end{bmatrix}$</li><li style="font-size: 0.8em">Obj() $= \sum \text{Skill}_i^2$</li></ul><aside>- S = Skill
+</aside></section><section class="cover" data="algorithm.jpg"><h1>Algorithm</h1></section><section><div class="code pseudocode full" lines="1-6|8|10-13|15-17|19|20|21-23|25-27|29-31|33-35|37-40|41-44|46|47-49|50-52|54-55|56-57|59|61-62|64-66|68-71|73|75"><div>Inputs
+- Obj (Objective Function)
+- ProblemSize (dimension)
+- PlayerSize (Number of players)
+- TeamSize (No of teams)
+- MaxNFix (Maximum no of fixtures)
+
+Output Most Valuable Player
+
+Initialization
+	- Fix PlayersSize
+	- Randomly choose players
+Random Team Formation
+
+Variables
+- obj
+- obj_new
+
+for fixture = 1 &rarr; MaxNFix
+	for i = 1 &rarr; TeamSize
+		Team<sub>i</sub> = Select team number i from teams
+		Team<sub>j</sub> = Randomly select team number j from teams,
+			such that j&ne;i
+
+		// Individual Competition
+		Team<sub>i</sub> = Team<sub>i</sub> + rand*(FranchisePlayer<sub>i</sub> - Team<sub>i</sub>)
+			+ 2*rand*(MVP - Team<sub>i</sub>)
+
+		// Team Competition
+		fitnessNorm<sub>Team i</sub> = fitness<sub>Team i</sub> - min(fitness of all teams)
+		fitnessNorm<sub>Team j</sub> = fitness<sub>Team j</sub> - min(fitness of all teams)
+		
+		// P(winning)
+		wi = fitnessNorm<sub>Team i</sub>/(fitnessNorm<sub>Team i</sub> + fitnessNorm<sub>Team j</sub>)
+		wj = fitnessNorm<sub>Team j</sub>/(fitnessNorm<sub>Team i</sub> + fitnessNorm<sub>Team i</sub>)
+
+		if wi > wj
+			better_team = i
+			worse_team = j
+			winning_percentage = wi
+		else
+			better_team = j
+			worse_team = i
+			winning_percentage = wj
+
+		r = uniform_random(0, 1)
+		if winning_percentage > r
+			winning_team = better_team
+			losing_team = worse_team
+		else
+			winning_team = worse_team
+			losing_team = better_team
+
+		if winning_team == i
+			Team<sub>i</sub> = Team<sub>i</sub> + rand*(Team<sub>i</sub> - FranchisePlayer<sub>j</sub>)
+		else
+			Team<sub>i</sub> = Team<sub>i</sub> + rand*(FranchisePlayer<sub>j</sub> - Team<sub>i</sub>)
+	
+		Check if there are players outside the search space
+
+	// calculate obj
+	obj_new = sum of squared skills
+
+	// Application of greediness: Accept new solution?
+	if obj_new > obj
+		obj = obj_new
+	
+	// Application of elitism:
+	Worst players replaced
+	The number of players replaced = 1/3 * PlayersSize
+	(this can be changed)
+
+MVP &larr; player with fitness = max(player fitness)
+
+end</div></div><aside>- TeamsSize not necessarily divisor of PlayersSize
+- Changing population size $\to$ no need to change number of teams’ every time since the algorithm can handle this issue
+
+- franchise player = best player on team
+- MVP = best player of league
+
+- every player aims to be the team’s franchise player and the league’s MVP. Thus, he tries to improve his skills (in training for example) compared to his team’s franchise player and to the league’s MVP.
+- the constant need not be 2. However, 2 has been found to be ideal after many tests.
+- rand is a uniformly distributed random number between 0 and 1. We can use other random variables such as normal dist also
+
+2 questions
+1. What is the probability that a team will win?
+2. Which team actually wins?
+	- this is due to randomness in sport
+	- randomness is lower in higher-scoring sports</aside></section><section data="flowchart.svg"></section><section class="cover" data="time_complexity.jpg"><h1>Time Complexity</h1></section><section><div class="f">Let<span>  $m =$ MaxNFix</span><span>, $n =$ TeamsSize</span><span>, $k =$ PlayersSize</span><span>, $s =$ ProblemSize</span></div><ul class="f">Complexity (Worst Case = Average Case = Best Case)<li style="font-size: 0.9em">$k + m \left( 2n + \frac{4k}{3} + 2s + 29 \right)$</li><li style="font-size: 0.9em">$\approx k + m(n+k+s)$</li><li>Big $O$ <span>= <mark>$O( \ \ m(n+k+s) \ \ )$</mark></span></li></ul><aside>- k = alloting players to teams
+- m = outer for loop
+- k = individual competition
+- 2n = calculating normalized fitness
+- constant values for 
+- k/3 = elitism
+</aside></section><section class="cover" data="numerical.jpg"><h1>Numerical Examples</h1></section><section><h1>Initialization</h1><ul><li>ObjFunction $= \sum_{i=1}^n x_i$</li><li>ProblemSize = 2 (dimensions)</li><li>Bounds</li><ul><li>$[0 \le S_1 \le 100]$</li><li>$[0 \le S_2 \le 100]$</li></ul><li>PlayersSize = 15</li><li>TeamsSize = 3</li><li>MaxNFix = 2</li></ul></section><section><table style="font-size: 0.5em"><thead><tr><th class="nf">Player</th><th class="nf">Shooting</th><th class="nf">Passing</th><th class="nf">Fitness $= \sum s_i$</th></tr></thead><tbody><tr><td class="nf">1</td><td class="nf">81</td><td class="nf">15</td><td class="nf">96</td></tr><tr><td class="nf">2</td><td class="nf">39</td><td class="nf">37</td><td class="nf">76</td></tr><tr><td class="nf">3</td><td class="nf">16</td><td class="nf">89</td><td class="nf">105</td></tr><tr><td class="nf">4</td><td class="nf">47</td><td class="nf">61</td><td class="nf">108</td></tr><tr><td class="nf">5</td><td class="nf">15</td><td class="nf">18</td><td class="nf">33</td></tr><tr><td class="nf">6</td><td class="nf">84</td><td class="nf">50</td><td class="nf">134</td></tr><tr><td class="nf">7</td><td class="nf">12</td><td class="nf">28</td><td class="nf">40</td></tr><tr><td class="nf">8</td><td class="nf">38</td><td class="nf">26</td><td class="nf">64</td></tr><tr><td class="nf">9</td><td class="nf">62</td><td class="nf">47</td><td class="nf">109</td></tr><tr><td class="nf">10</td><td class="nf">32</td><td class="nf">50</td><td class="nf">82</td></tr><tr><td class="nf">11</td><td class="nf">71</td><td class="nf">26</td><td class="nf">97</td></tr><tr><td class="nf">12</td><td class="nf">54</td><td class="nf">67</td><td class="nf">121</td></tr><tr><td class="nf">13</td><td class="nf">12</td><td class="nf">90</td><td class="nf">102</td></tr><tr><td class="nf">14</td><td class="nf">17</td><td class="nf">92</td><td class="nf">109</td></tr><tr><td class="nf">15</td><td class="nf">78</td><td class="nf">81</td><td class="nf">159</td></tr></tbody></table></section><section class="center"><a href="https://docs.google.com/spreadsheets/d/1TVvAim4VLoZodsnkkOTAUFmKhKsyd0jVpaz-lLOvmnE/edit?usp=sharing" fallback="" target="_blank">Google Sheet Demo</a></section><section><h1>Initialization</h1><ul><li>ObjFunction $= \sum_{i=1}^n {x_i}^2$</li><li>ProblemSize = 2 (dimensions)</li><li>Bounds</li><ul><li>$[-5.12 \le S_1 \le 5.12]$</li><li>$[-5.12 \le S_2 \le 5.12]$</li></ul><li>PlayersSize = 20</li><li>TeamsSize = 5</li><li>MaxNFix = 10</li></ul></section><section data="numerical_1.png"></section><section data="numerical_2.png"></section><section data="numerical_3.png"></section><section data="numerical_4.png"></section><section class="cover" data="diagram.jpg"><h1>Diagram</h1></section><section data="diagram.svg"></section><section class="cover" data="comparison.jpg"><h1>Comparison</h1></section><section><table class="nf" style="font-size: 0.55em"><thead class="nf"><th class="nf">Algorithm</th><th class="nf">Success<br><div style="font-size: 0.5em">Higher &rarr; better</div></th><th class="nf">Func Eval<br><div style="font-size: 0.5em">Lower &rarr; better</div></th></thead><tbody class="nf"><tr class="nf"><td class="nf">MVPA (Most Valuable Player Algorithm)</td><td class="nf" style="color: green">77.59</td><td class="nf">1273.8</td></tr><tr class="nf"><td class="nf">DE (Differential Evolution)</td><td class="nf">74.82</td><td class="nf">1664</td></tr><tr class="nf"><td class="nf">ABC (Artificial Bee Colony)</td><td class="nf">62.39</td><td class="nf">2062.3</td></tr><tr class="nf"><td class="nf">TLBO (Teaching–Learning-Based Optimization)</td><td class="nf">46.91</td><td class="nf">2902.9</td></tr><tr class="nf"><td class="nf">PSO (Particle Swarm Optimization)</td><td class="nf">73.66</td><td class="nf">2370.2</td></tr><tr class="nf"><td class="nf">BH (Black Hole)</td><td class="nf">45.54</td><td class="nf">1466.3</td></tr><tr class="nf"><td class="nf">LCA (League Championship Algorithm)</td><td class="nf">44.41</td><td class="nf">2582.9</td></tr><tr class="nf"><td class="nf">EM (Electromagnetism-like mechanism)</td><td class="nf">15.66</td><td class="nf">2049.7</td></tr><tr class="nf"><td class="nf">DSA (Differential Search Algorithm)</td><td class="nf">30.61</td><td class="nf">3379.5</td></tr><tr class="nf"><td class="nf">GA (Genetic Algorithm)</td><td class="nf">16.07</td><td class="nf">254.6</td></tr><tr class="nf"><td class="nf">SA (Simulated Annealing)</td><td class="nf">10.71</td><td class="nf">1843.4</td></tr><tr class="nf"><td class="nf">GSA (Gravitational Search Algorithm)</td><td class="nf">11.62</td><td class="nf" style="color: green">976</td></tr><tr class="nf"><td class="nf">HS (Harmony Search)</td><td class="nf">13.84</td><td class="nf">3179.3</td></tr><tr class="nf"><td class="nf">FA (Firefly Algorithm)</td><td class="nf">13.03</td><td class="nf">1255</td></tr></tbody></table></section><section data="performance.png"></section><section class="cover" data="references.jpg"><h1>References</h1></section><section><h1>References</h1><table style="font-size: 0.5em"><thead><th class="nf">Title</th><th class="nf">Author(s)</th><th class="nf">DOI</th></thead><tbody><tr><td class="nf">Most Valuable Player Algorithm</td><td class="nf">H.R.E.H. Bouchekara</td><td class="nf">10.1007/s12351-017-0320-y</td></tr><tr><td class="nf">Optimization Algorithm of Sports Big Data Industry Architecture ...</td><td class="nf">Wencan Fu & Honglin Li</td><td class="nf">10.1145/3510858.3511406</td></tr><tr><td class="nf">Soccer-Inspired Metaheuristics</td><td class="nf">Eneko Osaba & Xin-She Yang</td><td class="nf">10.1007/978-981-16-0662-5_5</td></tr><tr><td class="nf">Data-driven approach to predicting most valuable player in a game</td><td class="nf">Francisco, Catalina, Julio, Eusebio, Eduardo</td><td class="nf">10.1002/cmm4.1155</td></tr><tr><td class="nf">Meta-heuristics meet sports</td><td class="nf">M.K.A. Ariyaratne & R.M Silva</td><td class="nf">10.2478/ijcss-2022-0003</td></tr><tr><td class="nf">A development framework for decision support systems</td><td class="nf">Xavi Schelling & Samuel Robertson</td><td class="nf">10.2478/ijcss-2020-0001</td></tr></tbody></table></section><section class="center"><h1 class="f" data-fragment-index="2">Thank You</h1><div>Ahmed Thahir (2020A7PS0198U)<br/>Anmol Kumar (2020A7PS0221U)</div></section><section class="end"><h1>Thank &nbsp;You</h1></section><section class="misc"><section class="cover" data="./.././../../backend/custom/common_assets/qa.jpg"><h1>Q&A        </h1><aside>1. So let's start the Q&A session
+1. Feel free to ask any questions
+1. Meanwhile, QR code - folder containing
+	1. report
+	1. references used for the reseach
+	1. the credits to the photographers</aside></section></section><section class="appendix"><section class="cover" data="./.././../../backend/custom/common_assets/appendix.jpg"><h1>Appendix</h1></section></section></div></div><script src="./../../backend/custom/js/custom.js"></script><script src="./../../backend/reveal.js-master/dist/reveal.js"></script><script>set_themes("black")
+Reveal.initialize(config)
+
+// plugins
+window.addEventListener("load", function () {
+	//- loadStyle("./../../backend/custom/plugins/" + 'attribution/attribution.js')
+	//- loadScript("./../../backend/custom/plugins/" + 'toc/toc.js')
+	footer(slides) // it's here, as footer needs to have the same fragment index as the caller, so it should be after reveal has initialized
+
+	if (is_mobile())
+		Reveal.configure(mobile_config)
+
+	loadScript("./../../backend/custom/plugins/" + 'menu/menu.js').then(() => {
+		Reveal.registerPlugin(RevealMenu)
+	})
+
+	loadScript("./../../backend/custom/plugins/" + 'onetimer/onetimer.js').then(() => {
+		Reveal.registerPlugin(OneTimer)
+	})
+
+
+	// no need to load plotly, as the iframe will request anyway
+
+	if (slides.querySelector(".diagram-data") != null) {
+		const mermaid = "./../../backend/custom/plugins/" + 'mermaid/mermaid.'
+		loadScript(mermaid + 'js')
+		loadStyle(mermaid + 'css')
+		loadScript(mermaid + 'full.js')
+	}
+
+	// default plugins
+	let equation_flag = equation_exists(slides)
+	let code_flag = code_exists(slides)
+	let mathjs_flag = mathjs_required(equation_flag, code_flag)
+	//- console.log(equation_flag)
+
+	if (mathjs_flag)
+	{
+		loadScript("./../../backend/reveal.js-master/" + 'plugin/math/math.js').then(() => {
+			if (equation_flag)
+				Reveal.registerPlugin(RevealMath.KaTeX)
+
+			if (code_flag) {
+				// math.js is required for smooth animations
+				const k = "./../../backend/reveal.js-master/" + 'plugin/highlight/'
+
+				loadStyle("./../../backend/reveal.js-master/" + 'dist/theme/fonts/source-sans-pro/source-sans-pro.css')
+
+				loadStyle(k + 'monokai.css')
+				loadScript(k + '/highlight.js').then(() => {
+					Reveal.registerPlugin(RevealHighlight)
+				})
+			}
+		})
+	}
+
+	// non-critical
+	if (is_mobile()) {
+		loadScript("./../../backend/custom/plugins/" + 'toolbar/toolbar.js')
+	} else {
+		if(countdown_exists(slides))
+		loadScript("./../../backend/custom/plugins/" + 'countdown/countdown.js')
+
+		loadStyle("./../../backend/custom/plugins/" + 'chalkboard/style.css')
+		loadScript("./../../backend/custom/plugins/" + 'chalkboard/plugin.js').then(() => {
+			Reveal.registerPlugin(RevealChalkboard)
+		})
+
+		loadStyle("./../../backend/custom/plugins/" + 'pointer/pointer.css')
+		loadScript("./../../backend/custom/plugins/" + 'pointer/pointer.js').then(() => {
+			Reveal.registerPlugin(RevealPointer)
+		})
+
+		if (notes_exist(slides))
+		{
+			loadScript("./../../backend/reveal.js-master/" + 'plugin/notes/notes.js').then(() => {
+				Reveal.registerPlugin(RevealNotes)
+			})
+			//- loadScript("./../../backend/reveal.js-master/" + 'plugin/markdown/markdown.js').then(() => {
+			//- 	Reveal.registerPlugin(RevealMarkdown)
+			//- })
+		}
+	}
+})</script></body></html>

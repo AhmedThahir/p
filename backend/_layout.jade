@@ -1,0 +1,187 @@
+-var initial_theme = "black"
+
+-var backend = "./../../backend/"
+
+-var reveal = backend + "reveal.js-master/"
+-var default_themes = reveal + "dist/theme"
+
+-var custom = backend + "custom/"
+-var styles = custom + "styles/"
+-var fonts = custom + "fonts/"
+-var custom_plugin = custom + "plugins/"
+-var common_assets = "./../" + custom + "common_assets/"
+
+doctype html
+html
+	head
+		meta(charset='utf-8')
+		meta(name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+		title Ahmed's Presentation
+
+		link(rel="preload" href = fonts + "Montserrat/Montserrat.woff2" as="font" type="font/woff2" crossorigin)
+
+		link(rel='stylesheet' href = styles + 'combined.css')
+
+		link(rel='stylesheet' href = "" id="theme")
+		link(rel="preload" href = reveal + "dist/theme/" + initial_theme + ".css" as="style")
+
+		//- style
+			include custom/styles/custom.css
+		link(rel='stylesheet' href = styles + 'custom.css')
+
+	body
+		.reveal
+			.slides
+				section.start
+					h1.f
+						block title
+							div Presentation Title
+					.f(data-fragment-index="1")
+						block presenter
+							div Ahmed Thahir
+					aside.
+						# Shortcuts
+						- M: Menu
+						- B: Blackboard
+						- C: Chalkboard
+						- P: Pointer
+						- Alt+Left, Alt+Right: Navigate by skipping fragments
+						- Shift+Left, Shift+Right: Start, End of presentation
+						
+						# Self
+						1. ***Click notes to get back focus***
+						1. Lights off
+						1. Phone - Silent
+						1. Water
+						1. Use the audience screen for animations
+						
+						# Audience
+						1. audible/issues, let me know
+						1. Q&A session at the end
+
+				block content
+
+				block thanks
+					//- blank for looping
+					section.end
+						h1 Thank &nbsp;You
+					//- section.cover(data= common_assets + "applause.jpg")
+						h1 (applause)
+					section.misc
+						section.cover(data= common_assets + "qa.jpg")
+							h1 Q&A        
+							aside.
+								1. So let's start the Q&A session
+								1. Feel free to ask any questions
+								1. Meanwhile, QR code - folder containing
+									1. report
+									1. references used for the reseach
+									1. the credits to the photographers
+						//- section(data= "landing.png")
+						//- section(data= "qr.svg")
+
+					section.appendix
+						section.cover(data= common_assets + "appendix.jpg")
+							h1 Appendix
+						block appendix
+
+		script(src = custom + "js/custom.js")
+		script(src = reveal + 'dist/reveal.js')
+		script.
+			set_themes("#{initial_theme}")
+			Reveal.initialize(config)
+
+			// plugins
+			window.addEventListener("load", function () {
+				//- loadStyle("#{custom_plugin}" + 'attribution/attribution.js')
+				//- loadScript("#{custom_plugin}" + 'toc/toc.js')
+				footer(slides) // it's here, as footer needs to have the same fragment index as the caller, so it should be after reveal has initialized
+
+				if (is_mobile())
+					Reveal.configure(mobile_config)
+
+				loadScript("#{custom_plugin}" + 'menu/menu.js').then(() => {
+					Reveal.registerPlugin(RevealMenu)
+				})
+
+				loadScript("#{custom_plugin}" + 'onetimer/onetimer.js').then(() => {
+					Reveal.registerPlugin(OneTimer)
+				})
+
+
+				// no need to load plotly, as the iframe will request anyway
+
+				if (slides.querySelector(".diagram-data") != null) {
+					const mermaid = "#{custom_plugin}" + 'mermaid/mermaid.'
+					loadScript(mermaid + 'js')
+					loadStyle(mermaid + 'css')
+					loadScript(mermaid + 'full.js')
+				}
+
+				// default plugins
+				let equation_flag = equation_exists(slides)
+				let code_flag = code_exists(slides)
+				let mathjs_flag = mathjs_required(equation_flag, code_flag)
+				//- console.log(equation_flag)
+
+				if (mathjs_flag)
+				{
+					loadScript("#{reveal}" + 'plugin/math/math.js').then(() => {
+						if (equation_flag)
+							Reveal.registerPlugin(RevealMath.KaTeX)
+
+						if (code_flag) {
+							// math.js is required for smooth animations
+							const k = "#{reveal}" + 'plugin/highlight/'
+
+							loadStyle("#{reveal}" + 'dist/theme/fonts/source-sans-pro/source-sans-pro.css')
+
+							loadStyle(k + 'monokai.css')
+							loadScript(k + '/highlight.js').then(() => {
+								Reveal.registerPlugin(RevealHighlight)
+							})
+						}
+					})
+				}
+
+				// non-critical
+				if (is_mobile()) {
+					loadScript("#{custom_plugin}" + 'toolbar/toolbar.js')
+				} else {
+					if(countdown_exists(slides))
+					loadScript("#{custom_plugin}" + 'countdown/countdown.js')
+
+					loadStyle("#{custom_plugin}" + 'chalkboard/style.css')
+					loadScript("#{custom_plugin}" + 'chalkboard/plugin.js').then(() => {
+						Reveal.registerPlugin(RevealChalkboard)
+					})
+
+					loadStyle("#{custom_plugin}" + 'pointer/pointer.css')
+					loadScript("#{custom_plugin}" + 'pointer/pointer.js').then(() => {
+						Reveal.registerPlugin(RevealPointer)
+					})
+
+					if (notes_exist(slides))
+					{
+						loadScript("#{reveal}" + 'plugin/notes/notes.js').then(() => {
+							Reveal.registerPlugin(RevealNotes)
+						})
+						//- loadScript("#{reveal}" + 'plugin/markdown/markdown.js').then(() => {
+						//- 	Reveal.registerPlugin(RevealMarkdown)
+						//- })
+					}
+				}
+			})
+		block settings
+			//- script.
+				Reveal.configure({
+					autoSlide: 2000,
+					loop: true
+				});
+
+				Reveal.configure({
+					controls: true,
+					toolbar: {
+						fullscreen: true
+					}
+				});

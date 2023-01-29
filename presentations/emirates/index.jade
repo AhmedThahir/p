@@ -1,0 +1,69 @@
+extends ../../backend/_layout.jade
+
+block title
+	div(style="font-size:0.8em") Evaluation of <br /> Facebook Prophet
+
+block content
+	section.cover(data="intro.jpg")
+		h1 Introduction
+	section
+		h1 Time Series
+		img(data="time_series.png")
+	section
+		h1 Forecasting
+		ul
+			li Predict future 
+				span using past and present data
+			li Uses Cases
+				ul
+					li Long-Term 
+						span → Pricing, Strategy
+					li Short-Term 
+						span → Inventory
+	section
+		h1 Facebook Prophet
+		ul
+			li Easier than generating a model
+			li Configurable
+			li Incorporates
+				ul
+					li Seasonality
+						span  - Yearly, Weekly Daily
+					li Holidays
+
+	section(data="adv_df.html") 
+	
+	section
+		h1 Technologies Used
+		ul
+			li Snowflake SQL
+			li Python
+			li Snowflake Connector
+			li Pandas
+			li Plotly
+
+	section(data="prophet_flowchart.svg")
+
+	section
+		h1 Error Metrics used
+		ul
+			li RMSE
+				ul
+					li Root Mean Squared Error
+					li $\sqrt{ \frac{1}{n} \sum_{i=1}^{n}(y_{i} - x_{i})^{2}}$
+			li MAE
+				ul
+					li Mean Absolute Error
+					li $\frac{1}{n} \sum_{i=1}^{n}\left | y_{i} - x_{i} \right |$
+
+	section(data="errors_df.html")
+	section(data="model_rmse.html")
+	section(data="model_mae.html")
+
+	section(data="Example_Forecast.html")
+
+	section
+		h1 Future Enhancements
+		ul
+			li Provide more data
+			li Explicitly add Holidays

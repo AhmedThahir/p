@@ -1,0 +1,133 @@
+extends ../../backend/_layout.jade
+
+block title
+	div Colemak-Im
+
+block content
+	section.cover(data="intro.jpg")
+		h1 Introduction
+	
+	section.cover(data="review.jpg")
+		h1 Literature Review
+	section
+		h1 Literature Review
+		ul
+			li Goal: reduce the overall distance travelled by the fingers
+			li Algorithms
+			ul
+				li Optimization
+				li Genetic Algorithm
+				li Neural Network
+			li Input text data
+			li Analyze frequency, difficulty, finger travel
+	section
+		h1 Literature Gaps
+		ul 
+			li alphanumeric characters
+			li Basics
+			ul
+				li Enter
+				li Backspace, Delete
+				li Ctrl, Shift
+			li Hotkeys
+			ul
+				li Save
+				li Cut, Copy, Paste
+				li Undo, Redo
+	
+	section(data="keyb_calc_std_ergo_fingers.png")
+
+	section.cover(data="research.jpg")
+		h1 Proposal
+	section(data="Colemak-Im.jpg")
+	
+	section.cover(data="work.jpg")
+		h1 Implementation
+	section
+		h1 Implementation
+		ul
+			li Windows: AutoHotkey
+			li MacOS: Karabiner Elements
+			li Both are Open Source
+		
+	section.cover(data="evaluation.jpg")
+		h1 Evaluation<br />(In-Progress)
+	section(data="Codes_Normal.jpg")
+	section(data="Codes_Wide.jpg")
+
+	section(data="Mappings.html")
+	section(data="Difficulty_Scores.html")
+
+	section(
+		data="Keyboard_Tester.html"
+	)
+
+	section
+		h1 Future Work
+		ul
+			li Input Text File
+			li Get frequency count
+			li Other parameters
+			ul
+				li Travel Distance
+				li Finger-Wise Analysis
+			li Dashboard
+	section(data="prototype.svg")
+
+	section.cover(data="references.jpg")
+		h1 References
+	section
+		p(style="font-size: 0.28em").
+			[1]	“Definition of ERGONOMICS.” https://www.merriam-webster.com/dictionary/ergonomics (accessed Apr. 19, 2022).
+			<br>
+			[2]	M. J. Gerard, T. J. Armstrong, A. Franzblau, B. J. Martin, and D. M. Rempel, “The Effects of Keyswitch Stiffness on Typing Force, Finger Electromyography, and Subjective Discomfort,” Am. Ind. Hyg. Assoc. J., vol. 60, no. 6, pp. 762–769, Nov. 1999, doi: 10.1080/00028899908984499.
+			<br>
+			[3]	“Keyboard Ghosting Interactive Demonstration | Applied Sciences | Microsoft.” https://www.microsoft.com/applied-sciences/projects/anti-ghosting-demo (accessed Feb. 15, 2023).
+			<br>
+			[4]	“Keyboard Matrix Help.” https://www.dribin.org/dave/keyboard/one_html/ (accessed Feb. 12, 2023).
+			<br>
+			[5]	“KINESIS Freestyle2 Ergonomic Keyboard for PC (9" or 20" Separation) (9" Separation).” https://www.amazon.com/Freestyle2-Ergonomic-Keyboard-Standard-Separation/dp/B00CMALD3E (accessed Feb. 10, 2023).
+			<br>
+			[6]	“Amazon.com: Microsoft Ergonomic Keyboard - Black. Wired, Comfortable, Ergonomic Keyboard with Cushioned Wrist and Palm Support. Split Keyboard. Dedicated Office Key. : Electronics.” https://www.amazon.com/Microsoft-LXM-00001-Ergonomic-Keyboard/dp/B07Y414QXJ (accessed Feb. 15, 2023).
+			<br>
+			[7]	“KINESIS Advantage2 Quiet LF Ergonomic USB Keyboard (KB600LFQ).” https://www.amazon.com/Kinesis-Advantage2-Ergonomic-Keyboard-KB600LFQ/dp/B07K1SMRGS (accessed Feb. 15, 2023).
+			<br>
+			[8]	N. machine-readable author provided D. assumed, “Qwerty Keyboard Layout,” Jan. 12, 2006. https://commons.wikimedia.org/wiki/File:KB_United_States.svg (accessed Mar. 21, 2023).
+			<br>
+			[9]	“Dvorak Keyboard Layout.” https://commons.wikimedia.org/wiki/File:KB_United_States_Dvorak.svg (accessed Mar. 21, 2023).
+			<br>
+			[10] “Workman Keyboard Layout.” https://commons.wikimedia.org/wiki/File:Workman_keyboard_layout.png (accessed Mar. 21, 2023).
+			<br>
+			[11] “Colemak.” https://colemak.com/ (accessed Apr. 19, 2022).
+			<br>
+			[12] “Ergonomic Keyboard Mods: Angle Mod.” https://colemakmods.github.io/ergonomic-mods/angle.html (accessed Feb. 21, 2023).
+			<br>
+			[13]	“Ergonomic Keyboard Mods: Wide Mod.” https://colemakmods.github.io/ergonomic-mods/wide.html (accessed Feb. 21, 2023).
+			<br>
+			[14]	“Ergonomic Keyboard Mods: Extend Layer.” https://colemakmods.github.io/ergonomic-mods/extend.html (accessed Feb. 21, 2023).
+			<br>
+			[15]	“Ergonomic Keyboard Mods: Symbols Layer.” https://colemakmods.github.io/ergonomic-mods/symbols.html (accessed Feb. 21, 2023).
+			<br>
+			[16]	“Ergonomic Keyboard Mods: Modifiers.” https://colemakmods.github.io/ergonomic-mods/modifiers.html (accessed Feb. 21, 2023).
+			<br>
+			[17]	“Ergonomic Keyboard Mods: Curl.” https://colemakmods.github.io/ergonomic-mods/curl.html (accessed Feb. 21, 2023).
+			<br>
+			[18]	“Colemak Mod-DHm.” https://colemakmods.github.io/mod-dh/#revision-history (accessed Apr. 10, 2023).
+			<br>
+			[19]	T. Cellucci, “Developing Operational Requirements”.
+			<br>
+			[20]	J. Harrington, “ANSI vs ISO: Explained,” Switch and Click, Feb. 03, 2020. https://switchandclick.com/ansi-vs-iso-layout/ (accessed Feb. 11, 2023).
+			<br>
+			[21]	A. H. H. Onsorodi and O. Korhan, “Application of a genetic algorithm to the keyboard layout problem,” PLOS ONE, vol. 15, no. 1, p. e0226611, Jan. 2020, doi: 10.1371/journal.pone.0226611.
+			<br>
+			[22]	K. Nivasch and A. Azaria, “Keyboard Layout Optimization and Adaptation,” Int. J. Artif. Intell. Tools, p. S0218213023600023, Jan. 2023, doi: 10.1142/S0218213023600023.
+			<br>
+			[23]	M. Krzywinski, “Carpalx keyboard layout optimizer,” 2005.
+			<br>
+			[24]	“Colemak Mod-DH - Layout Analysis Model.” https://colemakmods.github.io/mod-dh/model.html (accessed Apr. 09, 2023).
+			<br>
+			[25]	“AutoHotkey v2 Quick Reference.” https://www.autohotkey.com/docs/v2/ (accessed Mar. 07, 2023).
+			<br>
+			[26]	“Karabiner-Elements Documentation,” Karabiner-Elements. https://karabiner-elements.pqrs.org/docs/ (accessed Mar. 09, 2023).	
+	
+	section(data="journal.png")
