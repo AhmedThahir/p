@@ -1,0 +1,107 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Ahmed's Presentation</title><link rel="preload" href="./../../backend/custom/fonts/Montserrat/Montserrat.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="./../../backend/custom/styles/combined.css"><link rel="stylesheet" href="" id="theme"><link rel="preload" href="./../../backend/reveal.js-master/dist/theme/black.css" as="style"><link rel="stylesheet" href="./../../backend/custom/styles/custom.css"></head><body><div class="reveal"><div class="slides"><section class="start"><h1 class="f"><div style="font-size: 0.7em"><span class="nf">Financial Analysis 📊</span><br><span style="color: hsl(5, 70%, 50%)">MANU</span></div></h1><div class="f" data-fragment-index="1"><div>Aaryan, Fahadha, Husam, Karman, Thahir</div></div><aside># Shortcuts
+- M: Menu
+- B: Blackboard
+- C: Chalkboard
+- P: Pointer
+- Alt+Left, Alt+Right: Navigate by skipping fragments
+- Shift+Left, Shift+Right: Start, End of presentation
+
+# Self
+1. ***Click notes to get back focus***
+1. Lights off
+1. Phone - Silent
+1. Water
+1. Use the audience screen for animations
+
+# Audience
+1. audible/issues, let me know
+1. Q&A session at the end
+</aside></section><section class="cover" data="old_trafford.webp"><h1>Introduction</h1><audio data="atmosphere.webm"></audio></section><section><h1>Introduction</h1><ul><li>UK Football Club</li><li>Spectator Sports (Entertainment)</li></ul><ul class="f">Sources of Revenue<li>Broadcast Rights</li><li>Sponsorships</li><li>Competition Performance</li><li>Ticket Sales</li></ul></section><section><h1>Ownership Structure</h1><ul><li>69% <span>: Glazers Family</span></li><ul><li>2005</li><li>£790 M</li></ul><li>31% <span>: Other Stakeholders</span></li></ul></section><section class="center"><h1>🚨<br/>No</h1></section><section class="cover" data="work.jpg"><h1>Analysis</h1></section><section class="cover" data="intro.jpg"><h1>Conclusion</h1></section><section class="end"><h1>Thank &nbsp;You</h1></section><section class="misc"><section class="cover" data="./.././../../backend/custom/common_assets/qa.jpg"><h1>Q&A        </h1><aside>1. So let's start the Q&A session
+1. Feel free to ask any questions
+1. Meanwhile, QR code - folder containing
+	1. report
+	1. references used for the reseach
+	1. the credits to the photographers</aside></section></section><section class="appendix"><section class="cover" data="./.././../../backend/custom/common_assets/appendix.jpg"><h1>Appendix</h1></section></section></div></div><script src="./../../backend/custom/js/custom.js"></script><script src="./../../backend/reveal.js-master/dist/reveal.js"></script><script>set_themes("black")
+Reveal.initialize(config)
+
+// plugins
+window.addEventListener("load", function () {
+	//- loadStyle("./../../backend/custom/plugins/" + 'attribution/attribution.js')
+	//- loadScript("./../../backend/custom/plugins/" + 'toc/toc.js')
+	footer(slides) // it's here, as footer needs to have the same fragment index as the caller, so it should be after reveal has initialized
+
+	if (is_mobile())
+		Reveal.configure(mobile_config)
+
+	loadScript("./../../backend/custom/plugins/" + 'menu/menu.js').then(() => {
+		Reveal.registerPlugin(RevealMenu)
+	})
+
+	loadScript("./../../backend/custom/plugins/" + 'onetimer/onetimer.js').then(() => {
+		Reveal.registerPlugin(OneTimer)
+	})
+
+
+	// no need to load plotly, as the iframe will request anyway
+
+	if (slides.querySelector(".diagram-data") != null) {
+		const mermaid = "./../../backend/custom/plugins/" + 'mermaid/mermaid.'
+		loadScript(mermaid + 'js')
+		loadStyle(mermaid + 'css')
+		loadScript(mermaid + 'full.js')
+	}
+
+	// default plugins
+	let equation_flag = equation_exists(slides)
+	let code_flag = code_exists(slides)
+	let mathjs_flag = mathjs_required(equation_flag, code_flag)
+	//- console.log(equation_flag)
+
+	if (mathjs_flag)
+	{
+		loadScript("./../../backend/reveal.js-master/" + 'plugin/math/math.js').then(() => {
+			if (equation_flag)
+				Reveal.registerPlugin(RevealMath.KaTeX)
+
+			if (code_flag) {
+				// math.js is required for smooth animations
+				const k = "./../../backend/reveal.js-master/" + 'plugin/highlight/'
+
+				loadStyle("./../../backend/reveal.js-master/" + 'dist/theme/fonts/source-sans-pro/source-sans-pro.css')
+
+				loadStyle(k + 'monokai.css')
+				loadScript(k + '/highlight.js').then(() => {
+					Reveal.registerPlugin(RevealHighlight)
+				})
+			}
+		})
+	}
+
+	// non-critical
+	if (is_mobile()) {
+		loadScript("./../../backend/custom/plugins/" + 'toolbar/toolbar.js')
+	} else {
+		if(countdown_exists(slides))
+		loadScript("./../../backend/custom/plugins/" + 'countdown/countdown.js')
+
+		loadStyle("./../../backend/custom/plugins/" + 'chalkboard/style.css')
+		loadScript("./../../backend/custom/plugins/" + 'chalkboard/plugin.js').then(() => {
+			Reveal.registerPlugin(RevealChalkboard)
+		})
+
+		loadStyle("./../../backend/custom/plugins/" + 'pointer/pointer.css')
+		loadScript("./../../backend/custom/plugins/" + 'pointer/pointer.js').then(() => {
+			Reveal.registerPlugin(RevealPointer)
+		})
+
+		if (notes_exist(slides))
+		{
+			loadScript("./../../backend/reveal.js-master/" + 'plugin/notes/notes.js').then(() => {
+				Reveal.registerPlugin(RevealNotes)
+			})
+			//- loadScript("./../../backend/reveal.js-master/" + 'plugin/markdown/markdown.js').then(() => {
+			//- 	Reveal.registerPlugin(RevealMarkdown)
+			//- })
+		}
+	}
+})</script></body></html>
